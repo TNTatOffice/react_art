@@ -1,4 +1,16 @@
 import { useState } from 'react';
+// importing styled components package
+import { styled } from 'styled-components'
+
+// Creating a styled div with styled components with``. This is a tagged template in JS
+// This returns a component div that already has these styles attached to it. 
+const ControlContainer =
+  styled.div`
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+margin-bottom: 1.5rem;
+`
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -22,7 +34,8 @@ export default function AuthInputs() {
 
   return (
     <div id="auth-inputs">
-      <div className="controls">
+      {/* Using ControlContainer style component */}
+      <ControlContainer>
         <p>
           {/* Setting className on label dynamically so taht different CSS rules can apply as needed */}
           {/* Setting it to a template literal with `` used to create Strings*/}
@@ -52,7 +65,7 @@ export default function AuthInputs() {
             }
           />
         </p>
-      </div>
+      </ControlContainer>
       <div className="actions">
         <button type="button" className="text-button">
           Create a new account
