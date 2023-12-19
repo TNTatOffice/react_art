@@ -25,9 +25,9 @@ const Input = styled.input`
 width: 100%;
 padding: 0.75rem 1rem;
 line-height: 1.5;
-background-color: ${({ invalid }) => invalid ? '#fed2d2' : '#d1d5db'} ;
+background-color: ${({ $invalid }) => $invalid ? '#fed2d2' : '#d1d5db'} ;
 color: #374151;
-border: 1px solid  ${({ invalid }) => invalid ? '#f73f3f' : 'transparent'};
+border: 1px solid  ${({ $invalid }) => $invalid ? '#f73f3f' : 'transparent'};
 border-radius: 0.25rem;
 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 color: ${({ invalid }) => invalid ? '#ef4444' : '#6b7280'};
@@ -60,23 +60,23 @@ export default function AuthInputs() {
           {/* Setting className on label dynamically so taht different CSS rules can apply as needed */}
           {/* Setting it to a template literal with `` used to create Strings*/}
           {/* The className will always have label and in addition to it- invalid or nothing, depending on the candition */}
-          <Label invalid={emailNotValid}>
+          <Label $invalid={emailNotValid}>
             Email
           </Label>
           <Input
-            invalid={emailNotValid}
+            $invalid={emailNotValid}
             type="email"
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
         </p>
         <p>
           {/* Dynamic styling applied with invalid on Password label */}
-          <Label invalid={passwordNotValid}>
+          <Label $invalid={passwordNotValid}>
             Password
           </Label>
           <Input
             type="password"
-            invalid={passwordNotValid}
+            $invalid={passwordNotValid}
             // style={{
             //   background: passwordNotValid ? '#ef4444' : '#d1d5db',
             // }}
